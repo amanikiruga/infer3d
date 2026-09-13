@@ -693,45 +693,8 @@ def get_orig_diffae_cc_loss(input_images, fixed_xt, orig_generator):
     return loss
 
 
-def noise_regularize_stylegan(noises):
-    loss = 0
 
-    for noise in noises:
-        size = noise.shape[2]
 
-        while True:
-            loss = (
-                loss
-                + (noise * torch.roll(noise, shifts=1, dims=3)).mean().pow(2)
-                + (noise * torch.roll(noise, shifts=1, dims=2)).mean().pow(2)
-            )
-
-            if size <= 8:
-                break
-
-            noise = noise.reshape([-1, 1, size // 2, 2, size // 2, 2])
-            noise = noise.mean([3, 5])
-            size //= 2
-
-    return loss
-def get_lr_stylegan(t, initial_lr, rampdown=0.25, rampup=0.05):
-    lr_ramp = min(1, (1 - t) / rampdown)
-    lr_ramp = 0.5 - 0.5 * math.cos(lr_ramp * math.pi)
-    lr_ramp = lr_ramp * min(1, t / rampup)
-
-    return initial_lr * lr_ramp
-
-def latent_noise_stylegan(latent, strength):
-    noise = torch.randn_like(latent) * strength
-
-    return latent + noise
-
-def noise_normalize_stylegan_(noises):
-    for noise in noises:
-        mean = noise.mean()
-        std = noise.std()
-
-        noise.data.add_(-mean).div_(std)
         
         
 class Space_Regularizer_StyleGAN:

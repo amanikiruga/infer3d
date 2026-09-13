@@ -1,8 +1,0 @@
-{
- "tag": "nfi_realcars",
- "n": 20,
- "cd_sym_mean": 0.4311132425267715,
- "cd_sym_median": 0.42957941622153684,
- "cd_pred2gt_mean": 0.49058477028905856,
- "cd_pred2gt_median": 0.5024553589792813
-}

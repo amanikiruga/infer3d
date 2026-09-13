@@ -1,6 +1,6 @@
 ---
 defaults:
-  - abs: stylegan_abs
+  - abs: diffae_abs
   - wandb: defaults
   - hydra: defaults
   - cam_embd: defaults

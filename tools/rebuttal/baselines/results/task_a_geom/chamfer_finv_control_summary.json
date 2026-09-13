@@ -1,8 +1,0 @@
-{
- "tag": "finv_control",
- "n": 25,
- "cd_sym_mean": 0.009635014321136377,
- "cd_sym_median": 0.006709165329762375,
- "cd_pred2gt_mean": 0.004229170496951027,
- "cd_pred2gt_median": 0.002581869626613026
-}

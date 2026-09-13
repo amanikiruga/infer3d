@@ -1,8 +1,0 @@
-{
- "tag": "finv_realcars",
- "n": 20,
- "cd_sym_mean": 0.30947109903816017,
- "cd_sym_median": 0.23535968129797324,
- "cd_pred2gt_mean": 0.16925812378468838,
- "cd_pred2gt_median": 0.05708769370995453
-}
