@@ -269,57 +269,6 @@ def sample_evenly_distributed_points_on_sphere(samples=40, radius=1.0):
 
     return np.array(points)
 
-def get_random_cameras_deterministic(num_rotations, zgt, device = "cuda", num_forward_rotations = 12): 
-    rotations = []
-    camera_positions = sample_evenly_distributed_points_on_sphere(samples=num_rotations, radius=zgt)
-
-    
-    for idx, camera_position in enumerate(camera_positions):
-        # Camera position
-        # camera_position = sample_point_on_sphere(zgt)
-        # camera_position = np.array([0, 0, -zgt])
-
-        # Compute the camera orientation to look at the object centroid
-        forward = -camera_position 
-        forward = forward / np.linalg.norm(forward) # normalize forward  
-        
-        # The "up" direction of the sphere is always 
-        sphere_up = np.array([0, 1, 0])
-        
-        if np.abs(np.dot(forward, sphere_up)) > 0.9999:
-            # If the forward vector is almost aligned with the up vector, we need to choose a different up vector
-            sphere_up = np.array([0, 0, 1])
-        
-        # Project sphere_up onto the plane perpendicular to forward
-        up = sphere_up - np.dot(sphere_up, forward) * forward
-        
-        # Normalize up vector
-        up = up / np.linalg.norm(up)
-        
-        # Compute right vector to complete the orthonormal basis
-        right = np.cross(up, forward)
-        
-        # Construct the rotation matrix
-        R = np.column_stack((right, up, forward))
-        # for i in range(num_forward_rotations):
-        #     angle = 2 * np.pi * i / num_forward_rotations
-        #     random_rotation = scipy_R.from_rotvec(angle * forward)
-        #     R_rotated = random_rotation.apply(R)
-        #     rotations.append(torch.tensor(R_rotated, dtype=torch.float32))
-    
-        for i in range(num_forward_rotations):
-            angle = 2 * np.pi * i / num_forward_rotations
-
-            # Define rotation explicitly around LOCAL Z-axis (camera forward)
-            rotation_around_forward = scipy_R.from_rotvec(angle * np.array([0, 0, 1]))
-
-            # Correctly rotate R around its local forward axis (Z-axis)
-            R_rotated = R @ rotation_around_forward.as_matrix()
-
-            rotations.append(torch.tensor(R_rotated, dtype=torch.float32))
-
-    rotations = torch.stack(rotations).to(device)
-    return rotations
 
 def get_random_cameras(num_rotations, zgt, device = "cuda"): 
     rotations = []
@@ -595,33 +544,12 @@ def render_with_custom_camera(splats, background, cfg, focal_pixels, rotation, z
 
 
 
-def diffae_cycle_consistency_loss(input_images, fixed_xt, generator, T=12): 
-    """ computes the cycle consistency loss for the diffusion autoencoder """
-    # Encode the input images
-    encoded = generator.encode(input_images)
-    # Decode the encoded images
-    decoded = generator(fixed_xt, encoded, T=T)
-    decoded = decoded.clamp(0, 1) # clamp to [0, 1]
-    
-    loss = F.mse_loss(input_images, decoded, reduction='none')
-    
-    loss = loss.view(loss.size(0), -1).mean(dim=1)
-    return loss
 
 def get_mse_loss(input_images, gt_images): 
     loss = F.mse_loss(input_images, gt_images, reduction='none')
     loss = loss.view(loss.size(0), -1).mean(dim=1)
     return loss
 
-def get_priored_latents(search_cond, fixed_xt, generator, T=12): 
-    # get the prior latents
-    # decode the search_cond 
-    generator_transform = transforms.Compose([transforms.Resize(128), transforms.CenterCrop(128), transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])])
-    decoded_images = generator(fixed_xt, search_cond, T=T)
-    decoded_images= decoded_images.clamp(0, 1)
-    decoded_images_transformed = generator_transform(decoded_images)
-    encoded_latents = generator.encode(decoded_images_transformed)
-    return encoded_latents
 
 def get_masked_image(mask_unthresh): 
 
@@ -654,43 +582,7 @@ def get_masked_image(mask_unthresh):
     return binary_mask 
 
 
-def get_mask(input_images, train_data, gaussian_predictor, cur_num_rotations, cfg): 
-    with torch.no_grad(): 
-        gaussian_splats_vis = gaussian_predictor(
-                input_images, 
-                train_data["view_to_world_transforms"][:1, :cfg.data.input_images, ...].repeat(cur_num_rotations, 1, 1, 1),
-                train_data["source_cv2wT_quat"][:1, :cfg.data.input_images].repeat(cur_num_rotations, 1, 1),
-                None,
-            )
-        features_dc_zero = torch.zeros_like(gaussian_splats_vis["features_dc"])
-        features_rest_zero = torch.zeros_like(gaussian_splats_vis["features_rest"])
-        gaussian_splats_vis["features_dc"] = features_dc_zero
-        gaussian_splats_vis["features_rest"] = features_rest_zero
-        
-        background = torch.tensor([1, 1, 1] , dtype=torch.float32, device=device)
-        gaussian_splats_vis = {k: v[0] for k, v in gaussian_splats_vis.items()}
-        pred_image = render_predicted(
-            gaussian_splats_vis, 
-            train_data["world_view_transforms"][:, 0],
-            train_data["full_proj_transforms"][:, 0],
-            train_data["camera_centers"][:, 0],
-            
-            background, cfg,
-            focals_pixels=None
-        )
-        mask_unthresh = pred_image["render"].detach().cpu()
-        mask = get_masked_image(mask_unthresh)
-    return mask
 
-def get_orig_diffae_cc_loss(input_images, fixed_xt, orig_generator): 
-    generator_transform = transforms.Compose([transforms.Resize(conf_generator.img_size), transforms.CenterCrop(conf_generator.img_size), transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])])
-    with torch.no_grad(): 
-        input_images_generator = generator_transform(input_images)
-        encoded_input_images = orig_generator.encode(input_images_generator)
-        decoded_images = orig_generator(fixed_xt, encoded_input_images, T=12)
-    loss = F.mse_loss(input_images, decoded_images, reduction='none')
-    loss = loss.view(loss.size(0), -1).mean(dim=1)  
-    return loss
 
 
 
@@ -753,46 +645,11 @@ class Space_Regularizer_StyleGAN:
         return ret_val, loss_lpips, l2_loss_val
     
 
-def alpha_blend_with_background(pil_image, background=(255, 255, 255)):
-    pil_image = pil_image.convert("RGBA")
-    bg = Image.new("RGB", pil_image.size, background)
-    bg.paste(pil_image, mask=pil_image.split()[3])  # Use alpha channel as mask
-    return bg
 import os
 import torch
 
 import torch
 
-def sample_se3_translations(
-    num_rotations: int,
-    num_latents:   int,
-    translation_magnitude_z: float,
-    k_x: float,
-    k_y: float,
-    device: torch.device = torch.device("cuda")
-) -> torch.Tensor:
-    """
-    Samples translations exactly like look_at_se3:
-      tx ∼ Uniform([−z·k_x, +z·k_x])
-      ty ∼ Uniform([−z·k_y, +z·k_y])
-      tz ∼ Uniform([−z,      +z     ])
-    and returns a (num_rotations * num_latents, 3) tensor.
-    """
-    # compute per‐axis bounds
-    tx_mag = translation_magnitude_z * k_x
-    ty_mag = translation_magnitude_z * k_y
-    tz_mag = translation_magnitude_z
-
-    total = num_rotations * num_latents
-
-    # draw them
-    tx = torch.empty(total, device=device).uniform_(-tx_mag, tx_mag)
-    ty = torch.empty(total, device=device).uniform_(-ty_mag, ty_mag)
-    tz = torch.empty(total, device=device).uniform_(-tz_mag, tz_mag)
-
-    translations = torch.stack([tx, ty, tz], dim=1)
-    translations.requires_grad_(True)
-    return translations
     
 def foreground_mask(img: torch.Tensor, thresh: float = 0.98) -> torch.Tensor:
     """

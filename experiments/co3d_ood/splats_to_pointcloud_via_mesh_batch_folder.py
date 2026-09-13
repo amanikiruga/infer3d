@@ -636,7 +636,7 @@ def main(checkpoint_dir, baseline_ood_output_folder, pseudo_gt_output_folder, ou
         "general.split=0", 
         "general.total_splits=1", 
         f"+dataset={dataset_name}", 
-        "abs=stylegan_abs", 
+        "abs=diffae_abs", 
         f"opt.pretrained_ckpt={pretrained_ckpt}", 
         "general.data_example_ids_path=not_needed.json"
     ])

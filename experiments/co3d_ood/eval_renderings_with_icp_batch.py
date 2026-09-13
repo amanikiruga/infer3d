@@ -369,41 +369,8 @@ def apply_icp_to_splats(splats, icp_solution, centroid_offset, device):
     return transformed_splats
 
 
-def regenerate_ours_splats_icp_aligned(checkpoint, gaussian_predictor, cfg, device, icp_solution, centroid_offset):
-    """
-    Regenerate optimized splats with ICP alignment applied.
-    """
-    assert icp_solution is not None, "ICP solution is None"
-
-    # First get the base ours splats
-    ours_splats, ood_data = regenerate_ours_splats(checkpoint, gaussian_predictor, cfg, device)
-
-    # Apply ICP transformation
-    transformed_splats = apply_icp_to_splats(ours_splats, icp_solution, centroid_offset, device)
-
-    return transformed_splats, ood_data
 
 
-def extract_point_cloud(splats, opacity_threshold=0.1):
-    """
-    Extract 3D point cloud from Gaussian splats.
-    
-    Args:
-        splats: Dictionary with 'xyz', 'opacity', etc.
-        opacity_threshold: Minimum opacity to include point
-    
-    Returns:
-        points: (N, 3) numpy array of 3D positions
-    """
-    xyz = splats['xyz'].detach().cpu().numpy()
-    opacity = splats['opacity'].detach().cpu().numpy()
-    
-    # Filter by opacity
-    mask = opacity.squeeze() > opacity_threshold
-    points = xyz[mask]
-    
-    print(f"Extracted {points.shape[0]} points (opacity > {opacity_threshold})")
-    return points
 
 
 # ============================================================================
@@ -1122,7 +1089,7 @@ def main(checkpoint_dir, pred_list, gt_list, results_csv,
         "general.total_splits=1", 
         f"+dataset={dataset_name}", 
         "general.prefix=checkpoints-eval",
-        "abs=stylegan_abs", 
+        "abs=diffae_abs", 
         f"opt.pretrained_ckpt={pretrained_ckpt}",
         "general.data_example_ids_path=not_needed.json"
     ]

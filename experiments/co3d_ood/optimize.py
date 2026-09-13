@@ -409,10 +409,6 @@ def load_models():
     generator.eval().to(device)
     return gaussian_predictor, generator
 
-def idx_to_label(idx, G, num_samples): 
-    label = torch.zeros(num_samples, G.c_dim, device=device)
-    label[:, idx] = 1
-    return label
 
 def load_test_image(test_img_path, size: int = 128): 
     image = Image.open(test_img_path)
