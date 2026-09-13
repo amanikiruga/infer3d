@@ -1,0 +1,242 @@
+[
+ {
+  "tag": "teapot_3f572066",
+  "cat": "teapot",
+  "uid": "3f572066117e4ebcb53ce99851cff719",
+  "cd_ff": 0.14654022543166295,
+  "cd_inv": 0.2172048390927112,
+  "win": false
+ },
+ {
+  "tag": "teapot_d3fe7b67",
+  "cat": "teapot",
+  "uid": "d3fe7b67a48c4fc89f7dbeffb3c6cc3d",
+  "cd_ff": 0.16575648756259811,
+  "cd_inv": 0.1313144059181922,
+  "win": true
+ },
+ {
+  "tag": "teapot_062f7cf6",
+  "cat": "teapot",
+  "uid": "062f7cf613304d4db0d130b601619a4f",
+  "cd_ff": 0.21336549849182532,
+  "cd_inv": 0.13355660571314681,
+  "win": true
+ },
+ {
+  "tag": "teapot_0deff0a5",
+  "cat": "teapot",
+  "uid": "0deff0a5da2546f9a52cdd42dcc2d4fb",
+  "cd_ff": 0.07157014237266113,
+  "cd_inv": 0.19361157638536827,
+  "win": false
+ },
+ {
+  "tag": "teapot_88b2e129",
+  "cat": "teapot",
+  "uid": "88b2e129b55043c6aeb2a8c419ba62b4",
+  "cd_ff": 0.4217512928839335,
+  "cd_inv": 0.2717745954687835,
+  "win": true
+ },
+ {
+  "tag": "teapot_3d7a17c7",
+  "cat": "teapot",
+  "uid": "3d7a17c78efb4b059d1cfcf65205509d",
+  "cd_ff": 0.10849003494721085,
+  "cd_inv": 0.10815862166771253,
+  "win": true
+ },
+ {
+  "tag": "teapot_3b933fea",
+  "cat": "teapot",
+  "uid": "3b933fea04cb486ab3a0d651ab7fb69d",
+  "cd_ff": 0.1960195558864745,
+  "cd_inv": 0.1431902690636281,
+  "win": true
+ },
+ {
+  "tag": "teapot_3386cee1",
+  "cat": "teapot",
+  "uid": "3386cee12f9e427a8b8e6a383083ead4",
+  "cd_ff": 0.15267264153920318,
+  "cd_inv": 0.1657545394487032,
+  "win": false
+ },
+ {
+  "tag": "teapot_82af323c",
+  "cat": "teapot",
+  "uid": "82af323ccd47466e9b54a3f3c36f01f8",
+  "cd_ff": 0.16160185610377617,
+  "cd_inv": 0.2098151480131417,
+  "win": false
+ },
+ {
+  "tag": "teapot_b6cbfcec",
+  "cat": "teapot",
+  "uid": "b6cbfcecbb044cd38b9f6f2c36b6d866",
+  "cd_ff": 0.1772020015388379,
+  "cd_inv": 0.15373355952730797,
+  "win": true
+ },
+ {
+  "tag": "mug_a17de88a",
+  "cat": "mug",
+  "uid": "a17de88a9464410fa2c8f550ab04749e",
+  "cd_ff": 0.29663579347326957,
+  "cd_inv": 0.20054083123987593,
+  "win": true
+ },
+ {
+  "tag": "mug_885ae84e",
+  "cat": "mug",
+  "uid": "885ae84e85ef401ba0f7a07a81adbb06",
+  "cd_ff": 0.6962218478886665,
+  "cd_inv": 0.6603583539626224,
+  "win": true
+ },
+ {
+  "tag": "mug_f5e82520",
+  "cat": "mug",
+  "uid": "f5e8252067fc4fa5a1f79f4e3d7b7c45",
+  "cd_ff": 0.15929376786730223,
+  "cd_inv": 0.14753154208655986,
+  "win": true
+ },
+ {
+  "tag": "mug_1522d7b6",
+  "cat": "mug",
+  "uid": "1522d7b6d8a14f4f8c19f996320fdc09",
+  "cd_ff": 0.08765619956374901,
+  "cd_inv": 0.1887390886027544,
+  "win": false
+ },
+ {
+  "tag": "mug_def683d0",
+  "cat": "mug",
+  "uid": "def683d028954eb6ad58061a12058a55",
+  "cd_ff": 0.35727496802838493,
+  "cd_inv": 0.39316348609437,
+  "win": false
+ },
+ {
+  "tag": "mug_1b36172e",
+  "cat": "mug",
+  "uid": "1b36172e3e254b46a973f0132c4b2e08",
+  "cd_ff": 0.12814634027056476,
+  "cd_inv": 0.1496001345668199,
+  "win": false
+ },
+ {
+  "tag": "mug_96d0e25b",
+  "cat": "mug",
+  "uid": "96d0e25b866c48dbb7c90d26298c91e1",
+  "cd_ff": 0.1467646287275948,
+  "cd_inv": 0.18739233423186125,
+  "win": false
+ },
+ {
+  "tag": "mug_71439738",
+  "cat": "mug",
+  "uid": "714397383f014eafb4de216db99e851d",
+  "cd_ff": 0.10998626750534139,
+  "cd_inv": 0.20940663373031634,
+  "win": false
+ },
+ {
+  "tag": "mug_c3b02c96",
+  "cat": "mug",
+  "uid": "c3b02c96515d4e259b467a3453950e83",
+  "cd_ff": 0.2198292114616667,
+  "cd_inv": 0.1647182754518551,
+  "win": true
+ },
+ {
+  "tag": "mug_c609327d",
+  "cat": "mug",
+  "uid": "c609327dd3a74fb597584e1b4a14a615",
+  "cd_ff": 0.19004742138205966,
+  "cd_inv": 0.267507481733206,
+  "win": false
+ },
+ {
+  "tag": "vase_f51f1d33",
+  "cat": "vase",
+  "uid": "f51f1d33be804a759207152154ac7714",
+  "cd_ff": 0.14513242705851612,
+  "cd_inv": 0.12262553759229516,
+  "win": true
+ },
+ {
+  "tag": "vase_9bc928c1",
+  "cat": "vase",
+  "uid": "9bc928c149884e0891c16be963c69f8c",
+  "cd_ff": 0.13853695610617783,
+  "cd_inv": 0.14078432574613628,
+  "win": false
+ },
+ {
+  "tag": "vase_9b403961",
+  "cat": "vase",
+  "uid": "9b4039619bca402abd89e0765910567b",
+  "cd_ff": 0.3007136550219824,
+  "cd_inv": 0.10085430320379644,
+  "win": true
+ },
+ {
+  "tag": "vase_23d2476c",
+  "cat": "vase",
+  "uid": "23d2476cfa48463ea8bb9f94cbafdcc6",
+  "cd_ff": 0.12991743633501593,
+  "cd_inv": 0.13413318640226035,
+  "win": false
+ },
+ {
+  "tag": "vase_73a349e6",
+  "cat": "vase",
+  "uid": "73a349e6ed2446ecbbdeb83065519dc7",
+  "cd_ff": 0.15400317502344532,
+  "cd_inv": 0.1751201917412515,
+  "win": false
+ },
+ {
+  "tag": "vase_21811281",
+  "cat": "vase",
+  "uid": "218112819f234c348ae754ba64d24917",
+  "cd_ff": 0.25864874135041765,
+  "cd_inv": 0.20613817985641747,
+  "win": true
+ },
+ {
+  "tag": "vase_f9e6cea2",
+  "cat": "vase",
+  "uid": "f9e6cea281454cd7b0190bed1deb0788",
+  "cd_ff": 0.1798862643387031,
+  "cd_inv": 0.10367429811200587,
+  "win": true
+ },
+ {
+  "tag": "vase_416eeb0f",
+  "cat": "vase",
+  "uid": "416eeb0fabf9443f9e3e9a9d273c89d0",
+  "cd_ff": 0.28724196450361833,
+  "cd_inv": 0.1203187827103225,
+  "win": true
+ },
+ {
+  "tag": "vase_fb0bcbbd",
+  "cat": "vase",
+  "uid": "fb0bcbbd154f4c76b2fb389ea647015a",
+  "cd_ff": 0.11423141877967884,
+  "cd_inv": 0.2383963145808575,
+  "win": false
+ },
+ {
+  "tag": "vase_bba49b60",
+  "cat": "vase",
+  "uid": "bba49b60f3d94e8aa6ec0257fe89c2a9",
+  "cd_ff": 0.49618602387997185,
+  "cd_inv": 0.4261736057840228,
+  "win": true
+ }
+]

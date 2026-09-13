@@ -1,0 +1,131 @@
+{
+ "n": 20,
+ "init_holdout_mean": 13.769900608062745,
+ "heldout_mean": 18.238903999328613,
+ "heldout_median": 18.18057155609131,
+ "gain_mean": 4.469003391265869,
+ "ge18": 10,
+ "ge16": 15,
+ "per_scene": {
+  "0000_b8f2712e8330ba6b3c9fe3a963c6d73b": {
+   "camera_scale": 0.28571427719933645,
+   "init_holdout_psnr": 15.565895080566406,
+   "fit_psnr": 19.234474182128906,
+   "heldout_psnr": 18.95820426940918
+  },
+  "0001_b960544cfd0ff09f26b2c6e6d8c1e1ab": {
+   "camera_scale": 0.3159536463873727,
+   "init_holdout_psnr": 12.09524154663086,
+   "fit_psnr": 15.966018676757812,
+   "heldout_psnr": 15.938406944274902
+  },
+  "0002_b987a2ca54c6ddecb74697ced5978572": {
+   "camera_scale": 0.3471404824938093,
+   "init_holdout_psnr": 14.030075073242188,
+   "fit_psnr": 18.54662322998047,
+   "heldout_psnr": 18.680822372436523
+  },
+  "0003_be373cf14b9f9b77bb01e8d0bddd5702": {
+   "camera_scale": 0.28571427719933645,
+   "init_holdout_psnr": 18.450075149536133,
+   "fit_psnr": 23.02608871459961,
+   "heldout_psnr": 22.996707916259766
+  },
+  "0004_be745a383ceccfe453fa79783efbc3bf": {
+   "camera_scale": 0.28569928237370085,
+   "init_holdout_psnr": 14.081138610839844,
+   "fit_psnr": 17.794095993041992,
+   "heldout_psnr": 17.4622745513916
+  },
+  "0005_bf0ba9e2ebcfb431e6fe3612af521500": {
+   "camera_scale": 0.2857142857142857,
+   "init_holdout_psnr": 18.487388610839844,
+   "fit_psnr": 23.19135856628418,
+   "heldout_psnr": 22.708871841430664
+  },
+  "0006_bf9ea87a9765eed7d53b73fe621a84b4": {
+   "camera_scale": 0.29375849451337543,
+   "init_holdout_psnr": 11.404058456420898,
+   "fit_psnr": 14.240900039672852,
+   "heldout_psnr": 14.020415306091309
+  },
+  "0007_c1b312919af633f8f51f77a6d7299806": {
+   "camera_scale": 0.3240562507084438,
+   "init_holdout_psnr": 13.097177505493164,
+   "fit_psnr": 17.818801879882812,
+   "heldout_psnr": 17.71074676513672
+  },
+  "0008_c92721a95fe44b018039b09dacd0f1a7": {
+   "camera_scale": 0.3040659427642822,
+   "init_holdout_psnr": 13.058534622192383,
+   "fit_psnr": 22.809349060058594,
+   "heldout_psnr": 22.250795364379883
+  },
+  "0009_c98b7e1952c2c7bb85f6153ed2033a1c": {
+   "camera_scale": 0.3245668240955898,
+   "init_holdout_psnr": 18.619131088256836,
+   "fit_psnr": 20.874433517456055,
+   "heldout_psnr": 20.600711822509766
+  },
+  "0010_ca804e0f760537cac4545d2091e9ba5d": {
+   "camera_scale": 0.33523556164332796,
+   "init_holdout_psnr": 13.047752380371094,
+   "fit_psnr": 18.27887725830078,
+   "heldout_psnr": 18.378936767578125
+  },
+  "0011_cbc76d55a04d5b2e1d9a8cea064f5297": {
+   "camera_scale": 0.28825368200029644,
+   "init_holdout_psnr": 9.222402572631836,
+   "fit_psnr": 16.355993270874023,
+   "heldout_psnr": 16.077037811279297
+  },
+  "0012_ce2ff5c3a103b2c17ad11050da24bb12": {
+   "camera_scale": 0.3116742713110788,
+   "init_holdout_psnr": 13.14359188079834,
+   "fit_psnr": 19.588825225830078,
+   "heldout_psnr": 19.413171768188477
+  },
+  "0013_da6cbcac794d377df9111ef49c078dbe": {
+   "camera_scale": 0.2788488694599697,
+   "init_holdout_psnr": 12.295459747314453,
+   "fit_psnr": 14.314613342285156,
+   "heldout_psnr": 13.876884460449219
+  },
+  "0014_e7304e89fb763e45507243968c1db8f3": {
+   "camera_scale": 0.3087713377816336,
+   "init_holdout_psnr": 11.736855506896973,
+   "fit_psnr": 15.271957397460938,
+   "heldout_psnr": 14.893769264221191
+  },
+  "0015_eb63908dde4b579e25d45769a218937": {
+   "camera_scale": 0.28571430274418425,
+   "init_holdout_psnr": 15.3004732131958,
+   "fit_psnr": 21.606130599975586,
+   "heldout_psnr": 21.14227294921875
+  },
+  "0016_effb1b260f100f5919fb4103277a6b93": {
+   "camera_scale": 0.3103048971721104,
+   "init_holdout_psnr": 15.254072189331055,
+   "fit_psnr": 20.018356323242188,
+   "heldout_psnr": 20.13271141052246
+  },
+  "0017_f444df40dadd83e22cedd65b2f6d1fdf": {
+   "camera_scale": 0.3004239967891148,
+   "init_holdout_psnr": 10.978985786437988,
+   "fit_psnr": 15.729820251464844,
+   "heldout_psnr": 14.959168434143066
+  },
+  "0018_fbee8c9e5b8c0c19492d9da2668ec34c": {
+   "camera_scale": 0.2663965310369219,
+   "init_holdout_psnr": 12.373905181884766,
+   "fit_psnr": 16.854257583618164,
+   "heldout_psnr": 16.593963623046875
+  },
+  "0019_fc07472e4dd1b6698ae97f14e63e7e01": {
+   "camera_scale": 0.3561638763972691,
+   "init_holdout_psnr": 13.155797958374023,
+   "fit_psnr": 18.077486038208008,
+   "heldout_psnr": 17.982206344604492
+  }
+ }
+}

@@ -1,0 +1,193 @@
+{
+ "1ae184691a39e3d3e0e8bce75d28b114": {
+  "ours": 20.54,
+  "nfi_oracle": 13.21,
+  "eg3d_oracle": 11.7,
+  "nfi_own": 13.34,
+  "eg3d_own": 11.36,
+  "finv_own": 11.23
+ },
+ "1c1a3dc04b6f1f8fd8162cce87567b4": {
+  "ours": 18.32,
+  "nfi_oracle": 20.42,
+  "eg3d_oracle": 12.38,
+  "nfi_own": 19.28,
+  "eg3d_own": 12.14,
+  "finv_own": 11.57
+ },
+ "1d4b2404a00ef4bb627014ff98c41eb1": {
+  "ours": 21.59,
+  "nfi_oracle": 18.22,
+  "eg3d_oracle": 13.73,
+  "nfi_own": 16.29,
+  "eg3d_own": 13.58,
+  "finv_own": 13.42
+ },
+ "1e17510abe8f98bea697d949e28d773c": {
+  "ours": 22.22,
+  "nfi_oracle": 20.7,
+  "eg3d_oracle": 11.73,
+  "nfi_own": 13.72,
+  "eg3d_own": 11.41,
+  "finv_own": 11.45
+ },
+ "21a1f2a7b7e671826405999d829064fa": {
+  "ours": 13.18,
+  "nfi_oracle": 15.85,
+  "eg3d_oracle": 10.54,
+  "nfi_own": 13.08,
+  "eg3d_own": 10.34,
+  "finv_own": 10.17
+ },
+ "24b9180ac3f89ba4715e04edb8af9c53": {
+  "ours": 17.82,
+  "nfi_oracle": 23.77,
+  "eg3d_oracle": 16.63,
+  "nfi_own": 18.72,
+  "eg3d_own": 16.64,
+  "finv_own": 16.35
+ },
+ "28bdade3806ef2f328044fe9244db50a": {
+  "ours": 19.68,
+  "nfi_oracle": 19.1,
+  "eg3d_oracle": 13.22,
+  "nfi_own": 14.3,
+  "eg3d_own": 12.72,
+  "finv_own": 12.83
+ },
+ "2fcec17ab09a42782a9eb0f146e94477": {
+  "ours": 20.31,
+  "nfi_oracle": 20.04,
+  "eg3d_oracle": 13.14,
+  "nfi_own": 11.75,
+  "eg3d_own": 13.01,
+  "finv_own": 12.99
+ },
+ "30f96aa701d4e088becf71e2e014ff6f": {
+  "ours": 19.16,
+  "nfi_oracle": 13.31,
+  "eg3d_oracle": 12.54,
+  "nfi_own": 13.05,
+  "eg3d_own": 12.14,
+  "finv_own": 12.22
+ },
+ "3e37a76f38d057cd3f823401cb5b3c88": {
+  "ours": 20.32,
+  "nfi_oracle": 17.1,
+  "eg3d_oracle": 12.11,
+  "nfi_own": 11.64,
+  "eg3d_own": 11.98,
+  "finv_own": 12.02
+ },
+ "40313368870df2c0df59ad08996c77e8": {
+  "ours": 19.7,
+  "nfi_oracle": 16.51,
+  "eg3d_oracle": 14.21,
+  "nfi_own": 13.54,
+  "eg3d_own": 14.13,
+  "finv_own": 14.04
+ },
+ "48debbfd63725a743978555bf44cfc9a": {
+  "ours": 13.81,
+  "nfi_oracle": 16.46,
+  "eg3d_oracle": 10.96,
+  "nfi_own": 13.77,
+  "eg3d_own": 10.66,
+  "finv_own": 10.76
+ },
+ "504e8dbdccd8beea7e488037e176d2f0": {
+  "ours": 20.77,
+  "nfi_oracle": 19.83,
+  "eg3d_oracle": 11.27,
+  "nfi_own": 12.15,
+  "eg3d_own": 10.84,
+  "finv_own": 10.89
+ },
+ "51eb6c713070607db9cc180a886c1254": {
+  "ours": 19.34,
+  "nfi_oracle": 17.6,
+  "eg3d_oracle": 12.6,
+  "nfi_own": 12.54,
+  "eg3d_own": 12.34,
+  "finv_own": 12.32
+ },
+ "6bb14c1083ed44f5ac34b841f2070767": {
+  "ours": 15.61,
+  "nfi_oracle": 15.16,
+  "eg3d_oracle": 11.21,
+  "nfi_own": 12.94,
+  "eg3d_own": 11.14,
+  "finv_own": 10.94
+ },
+ "6ee1f28244a72fcadad3ef3f3ebed150": {
+  "ours": 19.55,
+  "nfi_oracle": 13.53,
+  "nfi_own": 14.28,
+  "eg3d_own": 10.41,
+  "finv_own": 10.55
+ },
+ "75221b7668e145b549415f1fb7067088": {
+  "ours": 19.94,
+  "nfi_oracle": 17.06,
+  "nfi_own": 16.9,
+  "eg3d_own": 17.44,
+  "finv_own": 17.41
+ },
+ "781b45d3eb625148248a78e10a40d8eb": {
+  "ours": 23.76,
+  "nfi_oracle": 24.84,
+  "nfi_own": 19.07,
+  "eg3d_own": 16.98,
+  "finv_own": 16.92
+ },
+ "7d4c3d9795570647657231d17e42d06f": {
+  "ours": 18.3,
+  "nfi_oracle": 15.9,
+  "nfi_own": 15.34,
+  "eg3d_own": 13.32,
+  "finv_own": 13.35
+ },
+ "83cbe72c4b5e9268ec89747d864c8515": {
+  "ours": 13.53,
+  "nfi_oracle": 12.62,
+  "nfi_own": 11.96,
+  "eg3d_own": 8.36,
+  "finv_own": 8.25
+ },
+ "96762f5d7f7e93343f9daeef6b843610": {
+  "ours": 21.08,
+  "nfi_oracle": 21.5,
+  "nfi_own": 16.23,
+  "eg3d_own": 14.1,
+  "finv_own": 13.78
+ },
+ "99efa2111f3be22d5fcb05674109534a": {
+  "ours": 23.64,
+  "nfi_oracle": 21.44,
+  "nfi_own": 17.13,
+  "eg3d_own": 12.26,
+  "finv_own": 12.06
+ },
+ "9f703e578b4b36295b74572d48ff6382": {
+  "ours": 18.48,
+  "nfi_oracle": 20.03,
+  "nfi_own": 11.44,
+  "eg3d_own": 11.5,
+  "finv_own": 11.42
+ },
+ "a5476137d0f2f930425b2c354eccabaf": {
+  "ours": 19.21,
+  "nfi_oracle": 14.66,
+  "nfi_own": 9.19,
+  "eg3d_own": 7.65,
+  "finv_own": 9.31
+ },
+ "27645458fec3d7ed514e3d96995c555d": {
+  "nfi_oracle": 12.74,
+  "eg3d_oracle": 11.7,
+  "nfi_own": 15.27,
+  "eg3d_own": 11.53,
+  "finv_own": 11.12,
+  "ours": 20.97
+ }
+}

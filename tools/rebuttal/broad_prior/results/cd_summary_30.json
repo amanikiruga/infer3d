@@ -1,0 +1,242 @@
+[
+ {
+  "tag": "pineapple_01049dbd",
+  "cat": "pineapple",
+  "uid": "01049dbd8ad244a89cdff8ad2374f58a",
+  "cd_ff": 0.1292687613688526,
+  "cd_inv": 0.0857682642461819,
+  "win": true
+ },
+ {
+  "tag": "pineapple_fbe5dfc5",
+  "cat": "pineapple",
+  "uid": "fbe5dfc571c64709896218d5eede38d5",
+  "cd_ff": 0.08250728398126313,
+  "cd_inv": 0.12250697136788231,
+  "win": false
+ },
+ {
+  "tag": "pineapple_3debe241",
+  "cat": "pineapple",
+  "uid": "3debe241ac7e401aa36ae944daa1708e",
+  "cd_ff": 0.10258931074088529,
+  "cd_inv": 0.05744117707587162,
+  "win": true
+ },
+ {
+  "tag": "pineapple_f0c0386e",
+  "cat": "pineapple",
+  "uid": "f0c0386ee7b34b8880847a543b85509d",
+  "cd_ff": 0.21282149725235755,
+  "cd_inv": 0.21606927695617412,
+  "win": false
+ },
+ {
+  "tag": "pineapple_8e9a1c50",
+  "cat": "pineapple",
+  "uid": "8e9a1c5093ca4adb95abe0ac372b6959",
+  "cd_ff": 0.27878586339934047,
+  "cd_inv": 0.12147658439284365,
+  "win": true
+ },
+ {
+  "tag": "pineapple_50231c18",
+  "cat": "pineapple",
+  "uid": "50231c1872584e7db662e3e5d9783f74",
+  "cd_ff": 0.16987910079660265,
+  "cd_inv": 0.13889524604969103,
+  "win": true
+ },
+ {
+  "tag": "pineapple_54caa18b",
+  "cat": "pineapple",
+  "uid": "54caa18b2c9b4cb0a65eee107f8169d3",
+  "cd_ff": 0.1867254215116569,
+  "cd_inv": 0.22891349968787475,
+  "win": false
+ },
+ {
+  "tag": "pineapple_55ac9488",
+  "cat": "pineapple",
+  "uid": "55ac94888eec4e7ba41851e9543fb079",
+  "cd_ff": 0.26556968752036597,
+  "cd_inv": 0.29821028971144875,
+  "win": false
+ },
+ {
+  "tag": "pineapple_f3a115b5",
+  "cat": "pineapple",
+  "uid": "f3a115b5fc1e404fb81560dd5f2811f7",
+  "cd_ff": 0.08885632029431242,
+  "cd_inv": 0.07636803590427206,
+  "win": true
+ },
+ {
+  "tag": "pineapple_1c77bd37",
+  "cat": "pineapple",
+  "uid": "1c77bd376c0940cab3ec72b037a6fc46",
+  "cd_ff": 0.11387385350233703,
+  "cd_inv": 0.0958581980530446,
+  "win": true
+ },
+ {
+  "tag": "winebottle_50d03f60",
+  "cat": "wine bottle",
+  "uid": "50d03f602bc34a398d7255e414dbf507",
+  "cd_ff": 0.07670156640355649,
+  "cd_inv": 0.1325555875534717,
+  "win": false
+ },
+ {
+  "tag": "winebottle_2884e7f7",
+  "cat": "wine bottle",
+  "uid": "2884e7f790a64d39b3a9f680d8bfb16d",
+  "cd_ff": 0.05426572281282979,
+  "cd_inv": 0.1414317726448942,
+  "win": false
+ },
+ {
+  "tag": "winebottle_a3a17b67",
+  "cat": "wine bottle",
+  "uid": "a3a17b679da64cbf9f30e68336bc7af5",
+  "cd_ff": 0.16859787701136245,
+  "cd_inv": 0.099761625993719,
+  "win": true
+ },
+ {
+  "tag": "winebottle_95f1afb7",
+  "cat": "wine bottle",
+  "uid": "95f1afb745b948fd9bac0908b6546d0c",
+  "cd_ff": 0.08457449042646886,
+  "cd_inv": 0.08807637018624331,
+  "win": false
+ },
+ {
+  "tag": "winebottle_45b8f6d2",
+  "cat": "wine bottle",
+  "uid": "45b8f6d2de174807a690b1c2ef381266",
+  "cd_ff": 0.06710215671739206,
+  "cd_inv": 0.10810152593630525,
+  "win": false
+ },
+ {
+  "tag": "winebottle_fb8ba681",
+  "cat": "wine bottle",
+  "uid": "fb8ba6812b6847f8b7f26dc319c07f93",
+  "cd_ff": 0.1408788289856292,
+  "cd_inv": 0.13829181814831887,
+  "win": true
+ },
+ {
+  "tag": "winebottle_c63510b1",
+  "cat": "wine bottle",
+  "uid": "c63510b103fc4954ad36a84d7e26e7ec",
+  "cd_ff": 0.1021991027546266,
+  "cd_inv": 0.1134598726677544,
+  "win": false
+ },
+ {
+  "tag": "winebottle_ca30c850",
+  "cat": "wine bottle",
+  "uid": "ca30c85074dd4dd38bcdb447f1643a8a",
+  "cd_ff": 0.12675567972377313,
+  "cd_inv": 0.0890289289067133,
+  "win": true
+ },
+ {
+  "tag": "winebottle_9dc5201b",
+  "cat": "wine bottle",
+  "uid": "9dc5201b8839467d82064b2acf64c888",
+  "cd_ff": 999.0,
+  "cd_inv": 0.14338500389507902,
+  "win": true
+ },
+ {
+  "tag": "winebottle_0d0d1c59",
+  "cat": "wine bottle",
+  "uid": "0d0d1c59b0474d2ea92ce2e172c9f56a",
+  "cd_ff": 0.08805475197994465,
+  "cd_inv": 0.09806274690429816,
+  "win": false
+ },
+ {
+  "tag": "helmet_ead53728",
+  "cat": "helmet",
+  "uid": "ead53728d4004a6686de6cb323d39007",
+  "cd_ff": 0.21364711643191134,
+  "cd_inv": 0.1985878807067422,
+  "win": true
+ },
+ {
+  "tag": "helmet_348f4f73",
+  "cat": "helmet",
+  "uid": "348f4f73dc374df893c01c4942d89e32",
+  "cd_ff": 0.1559945716677452,
+  "cd_inv": 0.23047714394397764,
+  "win": false
+ },
+ {
+  "tag": "helmet_9b608ca0",
+  "cat": "helmet",
+  "uid": "9b608ca09b8d46fd8579986d22c7ecb7",
+  "cd_ff": 0.07845683266835231,
+  "cd_inv": 0.11310429858108874,
+  "win": false
+ },
+ {
+  "tag": "helmet_3bf726bb",
+  "cat": "helmet",
+  "uid": "3bf726bbaf0c420b97fe6dfaa0d32e18",
+  "cd_ff": 0.09789058732561277,
+  "cd_inv": 0.2174088880356959,
+  "win": false
+ },
+ {
+  "tag": "helmet_7b344fdb",
+  "cat": "helmet",
+  "uid": "7b344fdb2ce846539cb420fe4d37fc13",
+  "cd_ff": 0.28687328898472725,
+  "cd_inv": 0.42042996799639015,
+  "win": false
+ },
+ {
+  "tag": "helmet_4cf8e68a",
+  "cat": "helmet",
+  "uid": "4cf8e68a3a724010bb103536fdbcefb6",
+  "cd_ff": 0.13249881897133625,
+  "cd_inv": 0.1647395977916176,
+  "win": false
+ },
+ {
+  "tag": "helmet_8360fc33",
+  "cat": "helmet",
+  "uid": "8360fc332ed14cb7b87fc06d442a159a",
+  "cd_ff": 0.18017385973974945,
+  "cd_inv": 0.2534944591706845,
+  "win": false
+ },
+ {
+  "tag": "helmet_ae124916",
+  "cat": "helmet",
+  "uid": "ae1249168e9343f5badcb102faf3800c",
+  "cd_ff": 0.13241917665696734,
+  "cd_inv": 0.29166166635330304,
+  "win": false
+ },
+ {
+  "tag": "helmet_99a2578a",
+  "cat": "helmet",
+  "uid": "99a2578a85c3481fabad91dd13f3dcc7",
+  "cd_ff": 0.43846503764265576,
+  "cd_inv": 0.5213151313582922,
+  "win": false
+ },
+ {
+  "tag": "helmet_1aad4ec8",
+  "cat": "helmet",
+  "uid": "1aad4ec8d14c43e08924a52d5910a284",
+  "cd_ff": 0.3073283157665473,
+  "cd_inv": 0.3309675502674406,
+  "win": false
+ }
+]

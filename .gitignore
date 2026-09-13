@@ -1,0 +1,21 @@
+# Byte-compiled / caches
+__pycache__/
+*.pyc
+*.egg-info/
+.ipynb_checkpoints/
+.DS_Store
+
+# Local configuration
+.env
+
+# Run outputs. Anchored to the repo root so they do NOT match the per-object result
+# files bundled under assets/ and tools/rebuttal/*/results/, which must ship.
+/runs/
+/outputs/
+/eval_output/
+/experiments_out/
+/wandb/
+
+# Large media produced by the eval and visualization scripts
+*.mp4
+*.ply

@@ -1,0 +1,51 @@
+loss: mse
+lr: 0.01
+lr_rotations: 0.01
+device: cuda
+num_iterations: 10000
+init_from_train_image: true
+custom_ood_image: null
+orthogonalize_rotations: true
+random_ood_image: false
+custom_img_remove_background: true
+use_mask: false
+random_seed: 0
+batch_size: 32
+example_id: null
+num_rotations: 30
+num_translations: 1
+test_idx: null
+lambda_mse: 1.0
+lambda_lpips: 0.5
+lambda_depth: 1.0
+lambda_mask_loss: 1.0
+num_latents: 20
+num_to_log: 10
+wandb_prefix: ""
+log_every: 250
+save_every_steps: 200  # Save optimization state every N steps
+w_noise:  0.05
+w_lr: 0.01
+w_reg: 0.001
+finetuning_baseline_lr: 0.000005
+w_noise_ramp: 0.75
+w_noise_regularize: 1e5
+pt_lr: 3e-4
+pt_l2_lambda: 1
+pt_lpips_lambda: 1
+latent_ball_num_of_samples: 1
+reg_locality_interval: 1
+pt_steps: 350
+reg_alpha: 30
+reg_l2_lambda: 0.1
+reg_lpips_lambda: 0.1
+# corruptions parameters 
+corruption_inverse_task: null 
+scale_factor: null
+k_y: 1.0
+k_x: 1.0
+translation_magnitude_z: 0.54
+
+# truncation and truncation regularization
+truncation: false
+truncation_reg: false

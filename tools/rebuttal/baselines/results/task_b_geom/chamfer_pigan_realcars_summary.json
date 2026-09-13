@@ -1,0 +1,8 @@
+{
+ "tag": "pigan_realcars",
+ "n": 20,
+ "cd_sym_mean": 0.11227973065792736,
+ "cd_sym_median": 0.11094029995684898,
+ "cd_pred2gt_mean": 0.08829745197480647,
+ "cd_pred2gt_median": 0.0784275352348224
+}

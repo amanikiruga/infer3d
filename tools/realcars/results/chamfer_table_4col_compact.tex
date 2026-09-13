@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering
+\small
+\caption{\textbf{3D reconstruction accuracy on RealCars (n=20).} Asymmetric Chamfer distance pred$\rightarrow$gt in m$^2$ (lower is better) against a FastGS multi-view pseudo-GT, after FPFH+RANSAC$\rightarrow$ICP alignment with GT-diameter pre-scaling. All methods consume the same single $128{\times}128$ SAM-cropped input. ``Wins'' counts scenes where a method is best.}
+\label{tab:realcars_recon_compact}
+\begin{tabular}{lcccc}
+\toprule
+Method & Mean $\downarrow$ & Median $\downarrow$ & Wins $\uparrow$ & n \\
+\midrule
+Ours & \textbf{0.131} & \textbf{0.093} & 13 & 20 \\
+Splatter Image & 0.219 & 0.179 & 3 & 20 \\
+LGM & 0.491 & 0.302 & 4 & 20 \\
+SF3D & 0.268 & 0.200 & 0 & 20 \\
+\bottomrule
+\end{tabular}
+\end{table}

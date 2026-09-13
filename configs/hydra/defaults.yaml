@@ -1,0 +1,10 @@
+---
+# Hydra's own per-job output (config snapshot + log). Kept under runs/ so the repo
+# root stays clean; runs/ is gitignored. $INFER3D_RUNS_ROOT overrides the location.
+run:
+  dir: ${oc.env:INFER3D_RUNS_ROOT,${hydra:runtime.cwd}/runs}/hydra/${now:%Y-%m-%d}/${now:%H-%M-%S}
+sweep:
+  dir: ${oc.env:INFER3D_RUNS_ROOT,${hydra:runtime.cwd}/runs}/hydra/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  subdir: ${hydra.job.override_dirname}
+job:
+  chdir: True

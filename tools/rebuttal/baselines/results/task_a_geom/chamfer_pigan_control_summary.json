@@ -1,0 +1,8 @@
+{
+ "tag": "pigan_control",
+ "n": 25,
+ "cd_sym_mean": 0.005789616200267795,
+ "cd_sym_median": 0.004649578820432343,
+ "cd_pred2gt_mean": 0.00634168761556555,
+ "cd_pred2gt_median": 0.005773296615790297
+}

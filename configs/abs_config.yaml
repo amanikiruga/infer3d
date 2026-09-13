@@ -1,0 +1,80 @@
+---
+defaults:
+  - abs: stylegan_abs
+  - wandb: defaults
+  - hydra: defaults
+  - cam_embd: defaults
+  - _self_
+general:
+  device: 0
+  random_seed: 0
+  num_devices: 1
+  mixed_precision: false
+  save_vis: 5
+  split: 0          # which shard this process handles (0-indexed)
+  total_splits: 1   # >1 only when sharding the test set across processes
+  data_example_ids_path: null  # only the ShapeNet-NMR runners read this
+  prefix: ???  # Must be provided via CLI
+  override_example_id: null # Must be provided via CLI
+  test_ood_images_folder_path: null
+  test_idx: null 
+  ood_view: null 
+  maxsamples: null 
+  use_hq: false
+  run_indist: false
+  force_seed: -1  # If >= 0, overrides per-example-id seed (for seed sensitivity experiments)
+
+data:
+  training_resolution: 128
+  subset: -1
+  input_images: 1
+  origin_distances: false
+  val_size: null          # Added override
+  overall_view: side-top  # Added override
+  is_override_image_ids: true # Added override
+  is_deterministic: true       # Added override
+opt:
+  iterations: 800001
+  base_lr: 0.00005
+  batch_size: 5
+  betas:
+    - 0.9
+    - 0.999
+  loss: l2
+  imgs_per_obj: 4
+  ema: 
+    use: true
+    update_every: 10
+    update_after_step: 100
+    beta: 0.9999
+  lambda_lpips: 0.0
+  pretrained_ckpt: null
+
+model:
+  max_sh_degree: 1
+  inverted_x: false
+  inverted_y: true
+  name: SingleUNet
+  opacity_scale: 1.0
+  opacity_bias: -2.0
+  scale_bias: 0.02
+  scale_scale: 0.003
+  xyz_scale: 0.1
+  xyz_bias: 0.0
+  depth_scale: 1.0
+  depth_bias: 0.0
+  network_without_offset: false
+  network_with_offset: true
+  attention_resolutions:
+  - 16
+  num_blocks: 4
+  cross_view_attention: true
+  base_dim: 128
+  isotropic: false
+
+logging:
+  ckpt_iterations: 400 # 1000
+  val_log: 1000
+  loss_log: 10
+  loop_log: 400 # 1000
+  render_log: 400 # 1000

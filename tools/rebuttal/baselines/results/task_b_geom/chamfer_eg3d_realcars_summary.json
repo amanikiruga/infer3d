@@ -1,0 +1,8 @@
+{
+ "tag": "eg3d_realcars",
+ "n": 20,
+ "cd_sym_mean": 0.3836447176084186,
+ "cd_sym_median": 0.35961982563842315,
+ "cd_pred2gt_mean": 0.1540511577619093,
+ "cd_pred2gt_median": 0.06561731249112907
+}

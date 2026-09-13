@@ -1,0 +1,102 @@
+{
+ "1ae184691a39e3d3e0e8bce75d28b114": {
+  "ours_ctrl": 20.05,
+  "nfi_ctrl": 22.56
+ },
+ "1c1a3dc04b6f1f8fd8162cce87567b4": {
+  "ours_ctrl": 22.34,
+  "nfi_ctrl": 20.98
+ },
+ "1d4b2404a00ef4bb627014ff98c41eb1": {
+  "ours_ctrl": 24.53,
+  "nfi_ctrl": 22.7
+ },
+ "1e17510abe8f98bea697d949e28d773c": {
+  "ours_ctrl": 22.72,
+  "nfi_ctrl": 19.15
+ },
+ "21a1f2a7b7e671826405999d829064fa": {
+  "ours_ctrl": 20.34,
+  "nfi_ctrl": 16.63
+ },
+ "24b9180ac3f89ba4715e04edb8af9c53": {
+  "ours_ctrl": 17.49,
+  "nfi_ctrl": 14.88
+ },
+ "27645458fec3d7ed514e3d96995c555d": {
+  "ours_ctrl": 23.09,
+  "nfi_ctrl": 23.26
+ },
+ "28bdade3806ef2f328044fe9244db50a": {
+  "ours_ctrl": 21.05,
+  "nfi_ctrl": 18.26
+ },
+ "2fcec17ab09a42782a9eb0f146e94477": {
+  "ours_ctrl": 23.13,
+  "nfi_ctrl": 22.75
+ },
+ "30f96aa701d4e088becf71e2e014ff6f": {
+  "ours_ctrl": 20.85,
+  "nfi_ctrl": 19.95
+ },
+ "3e37a76f38d057cd3f823401cb5b3c88": {
+  "ours_ctrl": 19.76,
+  "nfi_ctrl": 20.1
+ },
+ "40313368870df2c0df59ad08996c77e8": {
+  "ours_ctrl": 20.38,
+  "nfi_ctrl": 17.01
+ },
+ "48debbfd63725a743978555bf44cfc9a": {
+  "ours_ctrl": 13.41,
+  "nfi_ctrl": 16.41
+ },
+ "504e8dbdccd8beea7e488037e176d2f0": {
+  "ours_ctrl": 20.61,
+  "nfi_ctrl": 19.48
+ },
+ "51eb6c713070607db9cc180a886c1254": {
+  "ours_ctrl": 20.77,
+  "nfi_ctrl": 20.15
+ },
+ "6bb14c1083ed44f5ac34b841f2070767": {
+  "ours_ctrl": 15.91,
+  "nfi_ctrl": 18.02
+ },
+ "6ee1f28244a72fcadad3ef3f3ebed150": {
+  "ours_ctrl": 20.53,
+  "nfi_ctrl": 21.89
+ },
+ "75221b7668e145b549415f1fb7067088": {
+  "ours_ctrl": 17.37,
+  "nfi_ctrl": 17.61
+ },
+ "781b45d3eb625148248a78e10a40d8eb": {
+  "ours_ctrl": 22.79,
+  "nfi_ctrl": 21.24
+ },
+ "7d4c3d9795570647657231d17e42d06f": {
+  "ours_ctrl": 19.93,
+  "nfi_ctrl": 17.16
+ },
+ "83cbe72c4b5e9268ec89747d864c8515": {
+  "ours_ctrl": 21.02,
+  "nfi_ctrl": 19.32
+ },
+ "96762f5d7f7e93343f9daeef6b843610": {
+  "ours_ctrl": 22.35,
+  "nfi_ctrl": 23.65
+ },
+ "99efa2111f3be22d5fcb05674109534a": {
+  "ours_ctrl": 24.91,
+  "nfi_ctrl": 24.69
+ },
+ "9f703e578b4b36295b74572d48ff6382": {
+  "ours_ctrl": 21.19,
+  "nfi_ctrl": 17.33
+ },
+ "a5476137d0f2f930425b2c354eccabaf": {
+  "ours_ctrl": 21.52,
+  "nfi_ctrl": 21.09
+ }
+}

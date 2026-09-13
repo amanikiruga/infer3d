@@ -1,0 +1,8 @@
+{
+ "tag": "ours_control",
+ "n": 25,
+ "cd_sym_mean": 0.007677206015362904,
+ "cd_sym_median": 0.005669256234385724,
+ "cd_pred2gt_mean": 0.004852636007095345,
+ "cd_pred2gt_median": 0.004155254675148406
+}
