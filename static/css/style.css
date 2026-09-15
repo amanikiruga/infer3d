@@ -64,6 +64,19 @@ a:hover {
 .hero-section .publication-authors a:hover {
   color: #BFDBFE;
 }
+.hero-section .publication-authors .author-block {
+  display: inline-block;
+  margin-right: 0.25rem;
+}
+.hero-section .publication-affiliations {
+  color: #94A3B8;
+  font-size: 0.95rem;
+  margin-bottom: 0.6rem;
+}
+.hero-section .publication-affiliations span {
+  display: inline-block;
+  margin: 0 0.5rem;
+}
 .hero-section .publication-venue {
   color: #94A3B8;
   font-size: 1rem;
@@ -542,6 +555,12 @@ a:hover {
 @media screen and (max-width: 600px) {
   .hero-section .publication-title {
     font-size: 1.4rem;
+  }
+  .hero-section .publication-authors {
+    font-size: 1rem;
+  }
+  .hero-section .publication-affiliations {
+    font-size: 0.85rem;
   }
   .comparison-panels {
     grid-template-columns: 1fr;
