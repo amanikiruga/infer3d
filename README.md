@@ -133,7 +133,20 @@ CO3D is the expensive one: about 20 minutes of H100 time per object for the sear
 iterations), and the meshing stage that follows is CPU-bound and slower still. Use
 `+general.maxsamples=N` on `optimize.py` to run a subset first.
 
-## 5. What you should get
+## 5. Checking the numbers without running anything
+
+The per-scene and per-sequence results behind two of the tables below ship with the repo
+(11 KB), so those can be re-derived with no data, no GPU and no install:
+
+```bash
+python experiments/realcars/score.py
+python experiments/re10k_fisheye/make_table3.py experiments/re10k_fisheye/results/table3_per_seq.json
+```
+
+Both print full-set means and the paired per-scene difference. CO3D has no equivalent
+shortcut: its numbers come out of the meshing stage, so you have to run it.
+
+## 6. What you should get
 
 **CO3D, out-of-distribution camera poses** (hydrants, full test set, n=41). Novel views
 after ICP alignment; Chamfer in the dataset's units.

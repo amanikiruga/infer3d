@@ -10,6 +10,6 @@ RUNS=${INFER3D_RUNS_ROOT:-$(pwd)/runs}
 
 python experiments/realcars/splats_to_ply_realcars.py      # optimized splats -> PLY
 python experiments/realcars/eval_chamfer_direct.py         # ICP-aligned Chamfer vs pseudo-GT
-python experiments/realcars/build_table_4col.py            # assemble the table
+python experiments/realcars/score.py                      # assemble the table
 
 echo "Results: $RUNS/realcars/"
