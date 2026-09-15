@@ -28,7 +28,7 @@ except Exception:
     _DEFAULT_OUT = None
     _EXTERN = os.getenv("INFER3D_EXTERN_ROOT", ".")
 
-_RAW = os.getenv("RE10K_RAW_ROOT", f"{_EXTERN}/datasets/re10k")
+_RAW = os.getenv("RE10K_RAW_ROOT", getattr(C, "RE10K_RAW_ROOT", f"{_EXTERN}/re10k"))
 PICKLE    = os.getenv("RE10K_PICKLE",    f"{_RAW}/flash3d_anns/catsplat_test_256.pickle.gz")
 POSE_DIR  = os.getenv("RE10K_POSE_DIR",  f"{_RAW}/RealEstate10K/test")
 VIDEO_DIR = os.getenv("RE10K_VIDEO_DIR", f"{_RAW}/videos")

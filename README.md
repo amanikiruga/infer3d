@@ -98,20 +98,36 @@ cd .. && CO3D_RAW_ROOT=$INFER3D_EXTERN_ROOT/co3d_raw \
 Preprocessing crops and masks each sequence and writes `co3d_processed_1080/`. The full
 CO3D release is 5.5 TB; these two categories are a small fraction of it.
 
-**RealEstate10K** ships camera trajectories, not frames: you download the pose `.txt`
-files from the project page and fetch the source videos from YouTube yourself. Once you
-have the poses and videos, this builds the per-sequence test clips:
+**RealEstate10K.** The release provides per-sequence camera trajectories and the
+YouTube ids they came from; the frames are extracted from the source videos. Arrange the
+raw pieces as
 
-```bash
-# https://google.github.io/realestate10k/  ->  RealEstate10K/test/*.txt
-RE10K_POSE_DIR=... RE10K_VIDEO_DIR=... \
-  python experiments/re10k_fisheye/build_clips.py --out $RE10K_CLIPS
+```
+$INFER3D_EXTERN_ROOT/re10k/
+  RealEstate10K/test/<seq>.txt          per-sequence poses (first line = YouTube id)
+  videos/<youtube_id>.mp4               source videos
+  flash3d_anns/catsplat_test_256.pickle.gz   per-sequence frame indices
 ```
 
-**RealCars** is 20 ARKit captures recorded for this paper, with per-scene multi-view
-pseudo-ground-truth. It is not derived from a public dataset; see the release link in the
-paper. Extract to `$INFER3D_EXTERN_ROOT/realcars` and the pseudo-GT to
-`realcars_pseudo_gt`. `assets/realcars_test_paths.csv` fixes which 20 scenes are used.
+then render the per-sequence test clips the loader reads:
+
+```bash
+python experiments/re10k_fisheye/build_clips.py --out $RE10K_CLIPS
+```
+
+Each clip holds the frame at every pose timestamp in order, so clip frame *i* lines up
+with pose *i*. The step skips sequences already built, so it is safe to re-run.
+
+**RealCars** is 20 ARKit car captures with per-scene multi-view pseudo-ground-truth
+(a Gaussian-Splatting fit to the full capture, meshed through gs2mesh). Extract to
+
+```
+$INFER3D_EXTERN_ROOT/realcars/HQ339/<scene>/      frame_*.jpg + frame_*.json
+$INFER3D_EXTERN_ROOT/realcars_pseudo_gt/<00..19>/ per-scene pseudo-GT
+```
+
+`assets/realcars_test_paths.csv` pins which 20 scenes and which frame of each is the
+single input view.
 
 Check what resolved:
 
@@ -121,17 +137,29 @@ python -c "from infer3d import config as c; print(c.CO3D_DATASET_ROOT_HQ, c.DIFF
 
 ## 4. Run
 
-Each script runs one experiment end to end and prints its table.
+Each script runs one experiment end to end -- search, then meshing and scoring -- and
+prints its table.
 
 ```bash
 experiments/co3d_ood/run.sh hydrants 0     # category, gpu
-experiments/re10k_fisheye/run.sh 0
-experiments/realcars/run.sh 0
+experiments/re10k_fisheye/run.sh 0         # gpu
+experiments/realcars/run.sh 0              # gpu
 ```
 
-CO3D is the expensive one: about 20 minutes of H100 time per object for the search (783
-iterations), and the meshing stage that follows is CPU-bound and slower still. Use
-`+general.maxsamples=N` on `optimize.py` to run a subset first.
+What each does, and roughly what it costs on one H100:
+
+| | per unit | units | stages |
+|---|---|---|---|
+| `co3d_ood` | ~20 min | 41 objects | search → gs2mesh → Sim(3)-ICP → Chamfer + novel views |
+| `realcars` | ~12 min, 37 GB VRAM | 20 scenes | search → PLY → ICP vs pseudo-GT → Chamfer |
+| `re10k_fisheye` | ~1 min | 160 sequences | synthesize fisheye → blind calibration → 5 conditions |
+
+The searches dominate, and all three loops skip work that already exists, so they can be
+interrupted and resumed. To try one object first, pass `+general.maxsamples=1` to
+`co3d_ood/optimize.py`, or a scene range to `realcars/run.sh 0 0 0`.
+
+Every search uses the same fixed schedule: 600 initial hypotheses (30 rotations × 20
+latents) pruned to 32, then 10, then 5 over 783 iterations.
 
 ## 5. Checking the numbers without running anything
 

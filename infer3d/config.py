@@ -16,6 +16,9 @@ EXTERN_ROOT = os.getenv("INFER3D_EXTERN_ROOT", os.path.expanduser("~/infer3d-dat
 # --- datasets ---------------------------------------------------------------
 CO3D_DATASET_ROOT = os.getenv("CO3D_DATASET_ROOT", f"{EXTERN_ROOT}/co3d_processed")
 CO3D_DATASET_ROOT_HQ = os.getenv("CO3D_DATASET_ROOT_HQ", f"{EXTERN_ROOT}/co3d_processed_1080")
+# RE10K: the raw release (per-sequence pose .txt, source videos, and the frame-index
+# annotations), plus the per-sequence clips build_clips.py renders from them.
+RE10K_RAW_ROOT = os.getenv("RE10K_RAW_ROOT", f"{EXTERN_ROOT}/re10k")
 RE10K_CLIPS = os.getenv("RE10K_CLIPS", f"{EXTERN_ROOT}/re10k_clips_test_256")
 REALCARS_ROOT = os.getenv("REALCARS_ROOT", f"{EXTERN_ROOT}/realcars")
 REALCARS_PSEUDO_GT = os.getenv("REALCARS_PSEUDO_GT", f"{EXTERN_ROOT}/realcars_pseudo_gt")
