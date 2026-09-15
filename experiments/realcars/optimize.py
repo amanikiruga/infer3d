@@ -23,7 +23,7 @@ Usage (one scene; run.sh loops over all 20):
     +real_ood.w_reg=0.025 +real_ood.rank_w_reg_mult=1.0
 
 Writes $INFER3D_RUNS_ROOT/realcars_opt/<out_subdir>/final.pth plus PNG panels and a
-JSON loss trajectory. About 12 minutes and 37 GB of VRAM per scene.
+JSON loss trajectory.
 
 This script intentionally exits after one image so we can iterate fast; pass a
 *comma-separated* `+real_ood.image_path=a,b,c` to run multiple sequentially.

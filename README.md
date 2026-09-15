@@ -146,17 +146,22 @@ experiments/re10k_fisheye/run.sh 0         # gpu
 experiments/realcars/run.sh 0              # gpu
 ```
 
-What each does, and roughly what it costs on one H100:
+What each stage does:
 
-| | per unit | units | stages |
-|---|---|---|---|
-| `co3d_ood` | ~20 min | 41 objects | search → gs2mesh → Sim(3)-ICP → Chamfer + novel views |
-| `realcars` | ~12 min, 37 GB VRAM | 20 scenes | search → PLY → ICP vs pseudo-GT → Chamfer |
-| `re10k_fisheye` | ~1 min | 160 sequences | synthesize fisheye → blind calibration → 5 conditions |
+| | units | stages |
+|---|---|---|
+| `co3d_ood` | 41 objects | search → gs2mesh → Sim(3)-ICP → Chamfer + novel views |
+| `realcars` | 20 scenes | search → PLY → ICP against pseudo-GT → Chamfer |
+| `re10k_fisheye` | 160 sequences | synthesize fisheye → blind calibration → undistort → CATSplat → render → score |
 
-The searches dominate, and all three loops skip work that already exists, so they can be
-interrupted and resumed. To try one object first, pass `+general.maxsamples=1` to
-`co3d_ood/optimize.py`, or a scene range to `realcars/run.sh 0 0 0`.
+In every condition of the RE10K experiment the source image is fed through the same
+frozen CATSplat lifter, which predicts the Gaussians and renders the novel views that
+get scored; the conditions differ only in what that source image is (raw fisheye,
+equidistant undistortion given the true FOV, blind undistortion, oracle undistortion).
+
+All three loops skip work that already exists, so they can be interrupted and resumed.
+To try a single unit first, pass `+general.maxsamples=1` to `co3d_ood/optimize.py`, or a
+scene range to `realcars/run.sh 0 0 0`.
 
 Every search uses the same fixed schedule: 600 initial hypotheses (30 rotations × 20
 latents) pruned to 32, then 10, then 5 over 783 iterations.

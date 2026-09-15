@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # CO3D out-of-distribution viewpoints.
 #   usage: experiments/co3d_ood/run.sh [hydrants|vases] [gpu]
-# Stage 1 optimizes each test object (~20 min/object on an H100); stage 2 meshes the
-# result and scores Chamfer + novel views against the CO3D pseudo-ground-truth.
+# Stage 1 runs the search for each test object; stage 2 meshes the result and scores
+# Chamfer + novel views against the CO3D pseudo-ground-truth.
 set -euo pipefail
 cd "$(dirname "$0")/../.."
 [ -f .env ] && source .env

@@ -1014,7 +1014,7 @@ def train(cur_cfg, override_example_id = None, test_idx = 0, log_path = "checkpo
                     **merged_scores
                 })
                 # exit() # TODO: remove this
-                # Save loss trajectory + VRAM stats for compute-cost rebuttal experiments
+                # Save the loss trajectory and peak-memory stats for this run
                 peak_vram_gb = torch.cuda.max_memory_allocated() / 1e9
                 trajectory_data = {
                     "example_id": override_example_id,

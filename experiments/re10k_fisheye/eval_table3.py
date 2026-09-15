@@ -18,7 +18,7 @@ split file; pair with dataset.crop_border=true. External deps (env-overridable v
 infer3d.config): CATSPLAT_ROOT (+ its checkpoint), and for 'ours' the sources produced by
 select_calib.py.
 
-Run (see scripts/reproduce_table3.sh):
+Run (see experiments/re10k_fisheye/run.sh):
   PYTHONPATH=. python experiments/re10k_fisheye/eval_table3.py abs=diffae_abs \
       run.checkpoint=$CATSPLAT_CKPT dataset.data_path=$RE10K_CLIPS +dataset.crop_border=true \
       "+eval3.methods=[clean,fisheye,equidistant,oracle,ours]" +eval3.n_seqs=160 \

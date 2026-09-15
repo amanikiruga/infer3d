@@ -1,69 +1,81 @@
-# Table 3 — RE10K sensor/FOV shift (Infer3D DAE vs CATSplat)
+# RealEstate10K under an unseen fisheye lens
 
-Self-contained pipeline for the RE10K OOD-fisheye row of the paper. Everything Infer3D-
-specific lives in this directory; the two large frozen models are external dependencies
-(resolved through `infer3d/config.py`, env-overridable — same convention Tables 1 & 2 use
-for the Splatter-Image lifter).
-
-## One command
+A scene-level lifter (CATSplat) is trained on pinhole RealEstate10K. Here the input is
+put through a fisheye lens it never saw, with no calibration supplied. Infer3D recovers
+the lens by inverting the generative prior, undistorts, and reconstructs.
 
 ```bash
-scripts/reproduce_table3.sh [gpu] [n_seqs]     # default gpu 0, 160 seqs
+experiments/re10k_fisheye/run.sh [gpu] [n_seqs]     # default: gpu 0, 160 sequences
 ```
 
-Runs: build clips → export OOD fisheye → **blind calibration (the method)** → CATSplat
-eval of every condition → table assembly. All paths + the locked fisheye operating point
-come from `infer3d/config.py` (`CATSPLAT_ROOT/CKPT`, `RE10K_CLIPS`, `DIFFAE_ROOT`,
-`RE10K_FISHEYE`).
+That runs: build clips → synthesize the fisheye inputs → blind calibration → evaluate
+every condition through CATSplat → assemble the table.
 
-## Files (all in this dir)
+## Files
 
-| File | Role | Deps |
-|---|---|---|
-| `fisheye.py` | OOD-fisheye synthesis + analytic undistortion + PSNR | pure numpy/cv2 |
-| `diffae_prior.py` | minimal loader for the frozen DiffAE prior | **DIFFAE_ROOT** |
-| `select_calib.py` | **the method** — blind calibration by prior-naturalness voting | `fisheye`, `diffae_prior` |
-| `eval_table3.py` | CATSplat eval harness (official protocol) | `fisheye`, **CATSPLAT_ROOT** |
-| `build_clips.py` | build per-seq RE10K test clips | raw RE10K release |
-| `make_table3.py` | per-row subset selection vs paper targets → table | pure |
-| `video_table3.py` | qualitative trajectory videos (optional) | `eval_table3` |
+| File | Role |
+|---|---|
+| `fisheye.py` | fisheye synthesis, analytic undistortion, PSNR |
+| `diffae_prior.py` | loader for the frozen DiffAE prior (`re10k_autoenc_256`) |
+| `select_calib.py` | **the method** — blind calibration by prior-naturalness voting |
+| `eval_table3.py` | evaluation harness; builds each condition's source image and runs CATSplat |
+| `catsplat_io.py` | CATSplat model loading and input preparation |
+| `build_clips.py` | render the per-sequence test clips from the raw release |
+| `make_table3.py` | assemble the table from per-sequence metrics |
 
-## External dependencies (not vendored — large frozen models)
+## How the conditions are compared
 
-- **CATSplat** (single-image 3D lifter): repo at `$CATSPLAT_ROOT`, checkpoint `$CATSPLAT_CKPT`,
-  plus its UniDepth-v2-vitl14 weights in `$HF_HOME`. The harness imports CATSplat as a
-  library (`datasets.util`, `evaluation.evaluator`, and the `load_catsplat_model` /
-  `prepare_catsplat_inputs` glue in its `experiments/diffae_catsplat_re10k/`).
-- **DiffAE prior** (`re10k_autoenc_256`): repo at `$DIFFAE_ROOT` providing `templates` +
-  `experiment.LitModel` and `checkpoints/re10k_autoenc_256/last.ckpt`.
-- **Raw RE10K** (once, for `build_clips.py`): `$RE10K_PICKLE`, `$RE10K_POSE_DIR`,
-  `$RE10K_VIDEO_DIR` (default under `$RE10K_RAW_ROOT`).
+`eval_table3.py` produces one *source image* per condition and then feeds all of them
+through the **same frozen CATSplat** lifter, which predicts the 3D Gaussians and renders
+the novel views that are scored. Only the source image differs:
 
-## Method (select_calib.py)
+| condition | source image |
+|---|---|
+| `clean` | the original pinhole frame |
+| `fisheye` | the synthesized fisheye, fed in raw |
+| `equidistant` | equidistant undistortion, *given the true FOV and focal* |
+| `ours` | undistortion using the calibration recovered blind by `select_calib.py` |
+| `oracle` | undistortion using the true calibration |
 
-Blind analysis-by-synthesis calibration. Search perspective FOV × radial-distortion
-severity `a` along the nominal lens profile; score each candidate by how well the frozen
-DiffAE prior **autoencodes the undistorted image at low diffusion T (=4)** — a tight prior
-bottleneck reconstructs only geometrically-natural (correctly-undistorted) images, so the
-score peaks at the true camera. Coarse→fine grid on the mean, then per-image paired
-**voting** among the top cells to break the FOV↔severity degeneracy. No calibration labels,
-no GT. This is the one step no naive baseline has access to; prior-free criteria
-(fit-residual, plumb-line straightness, image statistics) provably or empirically fail
-(see `Self-Cali-GS/neurips_diffae/TABLE3_OFFICIAL.md`).
+So the comparison isolates the calibration: same lifter, same renderer, same protocol
+(split-file frame indices, 5% border crop), different estimate of the lens.
 
-## Operating point (locked in config.RE10K_FISHEYE)
+## The method
 
-`in_fov=75, out_fov=94, k_scale=0.5, circle_scale=1.22`, nominal fisheye focal 190.4 px.
-Calibrated so the two paper-baseline anchor rows (CATSplat-direct, Equidistant) match the
-paper; see the results doc above for the severity-sweep rationale.
+Blind analysis-by-synthesis calibration. Search over perspective FOV × radial-distortion
+severity along the nominal lens profile, and score each candidate by how well the frozen
+DiffAE prior autoencodes the undistorted image at a low diffusion step count (T=4). A
+tight prior bottleneck reconstructs only geometrically natural — that is, correctly
+undistorted — images, so the score peaks at the true camera. A coarse-to-fine grid on the
+mean is followed by per-image paired voting among the top cells, which breaks the
+FOV-severity degeneracy. No calibration labels and no ground truth enter the loop.
 
-## Result (official protocol, 160 seqs; subset-selection convention, `n/total`)
+## Operating point
 
-| Setting | Method | PSNR | SSIM | LPIPS | n |
-|---|---|---|---|---|---|
-| In-dist. | CATSplat | 25.42 [25.41] | 0.835 [0.840] | 0.142 [0.149] | 72/160 |
-| OOD Fisheye | CATSplat | 16.27 [16.25] | 0.537 [0.610] | 0.327 [0.327] | 72/160 |
-| OOD Fisheye | Equidistant | 19.26 [19.24] | 0.680 [0.688] | 0.253 [0.253] | 72/160 |
-| OOD Fisheye | **Infer3D (DAE)** | **23.33 [23.33]** | **0.774 [0.775]** | **0.197 [0.198]** | 75/160 |
+Fixed in `config.RE10K_FISHEYE`: `in_fov=75, out_fov=94, k_scale=0.5,
+circle_scale=1.22`, nominal fisheye focal 190.4 px.
 
-`[paper]` in brackets. All rows match PSNR to ±0.02; Infer3D matches all three metrics.
+## Result
+
+Full 160 sequences, reproduced by `make_table3.py` from the per-sequence metrics in
+`results/table3_per_seq.json`:
+
+| Setting | Method | PSNR | SSIM | LPIPS |
+|---|---|---|---|---|
+| In-dist. | CATSplat | 22.98 | 0.761 | 0.182 |
+| OOD Fisheye | CATSplat direct | 15.87 | 0.450 | 0.355 |
+| OOD Fisheye | Equidistant, given the true FOV | 19.18 | 0.608 | 0.266 |
+| OOD Fisheye | **Infer3D, blind** | **22.17** | **0.736** | **0.218** |
+| OOD Fisheye | Oracle undistortion | 22.67 | 0.752 | 0.212 |
+
+Paired per-sequence, Infer3D minus baseline: **+6.30 dB** over CATSplat on the raw
+fisheye (96% of sequences) and **+2.99 dB** over equidistant undistortion given the true
+FOV (87%), landing 0.50 dB under the oracle ceiling.
+
+## External models
+
+- **CATSplat** at `$CATSPLAT_ROOT` with `$CATSPLAT_CKPT`, plus its UniDepth-v2-vitl14
+  weights in `$HF_HOME`. Imported as a library for `datasets.util` and
+  `evaluation.evaluator`.
+- **DiffAE** at `$DIFFAE_ROOT`, providing `templates` and `experiment.LitModel`, with
+  `checkpoints/re10k_autoenc_256/last.ckpt`.

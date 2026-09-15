@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # RealCars: synthetic-to-real appearance shift, Chamfer against per-scene pseudo-GT.
 #   usage: experiments/realcars/run.sh [gpu] [first_scene] [last_scene]
-# About 12 min and 37 GB of VRAM per scene for the search, then meshing and scoring.
 set -euo pipefail
 cd "$(dirname "$0")/../.."
 [ -f .env ] && source .env
